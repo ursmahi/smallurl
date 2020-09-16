@@ -1,6 +1,7 @@
 #import logging
 from bs4 import BeautifulSoup
 import requests
+import os
 
 # Enable logging
 #logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -87,7 +88,8 @@ def main():
     # Create the Updater and pass it your bot's token.
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
-    updater = Updater("1054595755:AAGfsNauuDkjljH5apTTKFnS4_jThXq7_OQ", use_context=True)
+    bot_token = os.environ.get("BOT_TOKEN","")
+    updater = Updater(bot_token, use_context=True) # add your bot token here
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
