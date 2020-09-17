@@ -16,12 +16,17 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 # context. Error handlers also receive the raised TelegramError object in error.
 def start(update, context):
     """Send a message when the command /start is issued."""
-    update.message.reply_text('Hi! Welcome to SmallURL bot Keep Urls small !')
+    update.message.reply_text("""Hi ! Welcome to Small URL bot , Keep Urls small !
+
+• Send me Long Link I will Make Small Url
+• No Ads in Shorten Link
+
+Join @Only_Mahi For More Updates""")
 
 
 def help_command(update, context):
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Definetly we will Help You')
+    update.message.reply_text('It is simple to use \n Just send your Long Urls, I will make it Small')
 def about(update,context):
     about_text='''
 A bot for making your urls shorter
