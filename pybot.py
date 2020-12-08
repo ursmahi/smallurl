@@ -1,7 +1,7 @@
 #import logging
 from bs4 import BeautifulSoup
 import requests
-import os
+import os,telegram
 
 # Enable logging
 #logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -52,15 +52,26 @@ def Create(update, context):
     return ul.append(query)    
 
     
-
 def echo(update, context):
     """Echo the user message."""
-    query =update.message.text
-    out=fun(query)
-    update.message.reply_text("Your Link --> Ready --> please wait... !")
-    update.message.reply_text(out)
-    update.message.reply_text("Send New Link if you want to make it small")
+    uid=update.message.chat.id
+    if(isMember(uid)):
+        query =update.message.text
+        out=fun(query)
+        update.message.reply_text("Your Link --> Ready --> please wait... !")
+        update.message.reply_text(out)
+        update.message.reply_text("Send New Link if you want to make it small")
+    else:
+            update.message.reply_text('''
 
+To use Our bot
+Join our channel
+
+@Only_Mahi
+
+and Send your Request to this bot
+
+''')
 
 
 def fun_cunstom(url,custom):
@@ -84,7 +95,11 @@ def fun(url):
 def convert_image(update, context):
     update.message.reply_text("We don't want Image send your link Friend!")
 
-    
+  def isMember(uid):
+    bot_token =os.environ.get("BOT_TOKEN","")
+    a=telegram.Bot(bot_token)
+    if(a.get_chat_member(chat_id="-1001426242407",user_id=uid).status=='left'):return False
+    return True  
     
 
 
