@@ -52,6 +52,7 @@ def Create(update, context):
     return ul.append(query)    
 
     
+
 def echo(update, context):
     """Echo the user message."""
     uid=update.message.chat.id
@@ -74,6 +75,7 @@ and Send your Request to this bot
 ''')
 
 
+
 def fun_cunstom(url,custom):
     source=requests.get(f'https://tinyurl.com/create.php?source=indexpage&url={url}&alias={custom}')
     if(source.status_code==200):
@@ -94,12 +96,13 @@ def fun(url):
     
 def convert_image(update, context):
     update.message.reply_text("We don't want Image send your link Friend!")
-
-  def isMember(uid):
+    
+def isMember(uid):
     bot_token =os.environ.get("BOT_TOKEN","")
     a=telegram.Bot(bot_token)
     if(a.get_chat_member(chat_id="-1001426242407",user_id=uid).status=='left'):return False
-    return True  
+    return True
+    
     
 
 
@@ -108,7 +111,7 @@ def main():
     # Create the Updater and pass it your bot's token.
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
-    bot_token = os.environ.get("BOT_TOKEN","")
+    bot_token =os.environ.get("BOT_TOKEN","")
     updater = Updater(bot_token, use_context=True) # add your bot token here
 
     # Get the dispatcher to register handlers
