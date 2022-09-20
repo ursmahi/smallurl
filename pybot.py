@@ -32,7 +32,7 @@ def about(update,context):
 A bot for making your urls shorter
 Keep your long tail urls to small
 
-Made by @Only_Mahi
+Made by @MahiChannels
     '''
     update.message.reply_text(about_text)
 
@@ -68,7 +68,7 @@ def echo(update, context):
 To use Our bot
 Join our channel
 
-@Only_Mahi
+@MahiChannels
 
 and Send your Request to this bot
 
